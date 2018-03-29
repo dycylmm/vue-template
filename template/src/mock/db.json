@@ -1,0 +1,35 @@
+{
+  "users": {
+    "code": "10000",
+    "result": [
+      {
+        "id": 0,
+        "avatar":
+          "https://s3.amazonaws.com/uifaces/faces/twitter/juangomezw/128.jpg",
+        "name": "江风华",
+        "phone": "021-38846676"
+      },
+      {
+        "id": 1,
+        "avatar":
+          "https://s3.amazonaws.com/uifaces/faces/twitter/meln1ks/128.jpg",
+        "name": "沈晓博",
+        "phone": "555-07267053"
+      },
+      {
+        "id": 2,
+        "avatar":
+          "https://s3.amazonaws.com/uifaces/faces/twitter/umurgdk/128.jpg",
+        "name": "周鹭洋",
+        "phone": "320-18584818"
+      },
+      {
+        "id": 3,
+        "avatar":
+          "https://s3.amazonaws.com/uifaces/faces/twitter/marklamb/128.jpg",
+        "name": "陆煜祺",
+        "phone": "674-53518527"
+      }
+    ]
+  }
+}

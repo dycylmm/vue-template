@@ -10,6 +10,10 @@
     {{#if_eq runner "jest"}}
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     {{/if_eq}}
+    {{#mock}}
+    "server": "json-server mock/index.js --port 9090",
+    "server-db": "json-server --watch mock/db.json --port 9090",
+    {{/mock}}
     {{#if_eq runner "karma"}}
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     {{/if_eq}}
@@ -26,11 +30,14 @@
   },
   "dependencies": {
     "vue": "^2.5.2"{{#router}},
-    "vue-router": "^3.0.1"{{/router}}
+    "vue-router": "^3.0.1"{{/router}},
+    {{#mock}}
+    "faker": "^4.1.0"
+    {{/mock}}
   },
   "devDependencies": {
     {{#lint}}
-    "babel-eslint": "^8.2.1",
+    "babel-eslint": "^7.2.3",
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",
@@ -56,6 +63,9 @@
     "jest-serializer-vue": "^0.3.0",
     "vue-jest": "^1.0.2",
     {{/if_eq}}
+    {{#mock}}
+    "json-server": "^0.12.1",
+    {{/mock}}
     {{#if_eq runner "karma"}}
     "cross-env": "^5.0.1",
     "karma": "^1.4.1",
