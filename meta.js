@@ -68,15 +68,15 @@ module.exports = {
         }
       ]
     },
-    mock: {
-      when: 'isNotTest',
-      type: 'confirm',
-      message: 'Install json-server?'
-    },
     router: {
       when: 'isNotTest',
       type: 'confirm',
       message: 'Install vue-router?'
+    },
+    mock: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Use json-server to mock data?'
     },
     lint: {
       when: 'isNotTest',
