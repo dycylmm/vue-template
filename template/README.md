@@ -7,6 +7,11 @@
 ``` bash
 # install dependencies
 npm install
+{{#unit}}
+
+# create a new window and run mock server
+npm run server
+{{/unit}}
 
 # serve with hot reload at localhost:8080
 npm run dev
