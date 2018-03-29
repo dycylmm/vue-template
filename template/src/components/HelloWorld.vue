@@ -84,13 +84,25 @@
 </template>
 
 <script>
+{{#vuex}}
+import { mapGetters, mapActions } from 'vuex'
+{{/vuex}}
 export default {
   name: 'HelloWorld',
-  data () {
+  data() {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
-  }
+  }{{#vuex}},
+  computed: {
+    ...mapGetters('common', ['title'])
+  },
+  methods: {
+    ...mapActions('common', ['updateTitle'])
+  },
+  mounted() {
+    this.updateTitle('Hello World!')
+  }{{/vuex}}
 }
 </script>
 
