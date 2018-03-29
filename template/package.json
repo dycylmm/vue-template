@@ -26,12 +26,17 @@
     {{#lint}}
     "lint": "eslint --ext .js,.vue src{{#unit}} test/unit{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}",
     {{/lint}}
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "deploy": "npm run build && node build/deploy.js"
   },
   "dependencies": {
     {{#mock}}
     "faker": "^4.1.0",
     {{/mock}}
+    {{#vuex}}
+    "vuex": "^3.0.1",
+    "vuex-persistedstate": "^2.5.1",
+    {{/vuex}}
     "vue": "^2.5.2"{{#router}},
     "vue-router": "^3.0.1"{{/router}}
   },

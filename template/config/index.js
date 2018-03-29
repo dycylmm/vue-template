@@ -5,21 +5,21 @@
 const path = require('path')
 const config = require('./config')
 
-const getProxyTable = function(paths, apiRoot) {
-  let proxyTable = {}
-  paths.forEach(function(item) {
-    let pathRewriteKey = '^/' + item
-    let pathRewriteValue = '/' + item
-    proxyTable['/' + item] = {
-      target: apiRoot,
-      changeOrigin: true,
-      pathRewrite: {
-        [pathRewriteKey]: pathRewriteValue
-      }
-    }
-  })
-  return proxyTable
-}
+// const getProxyTable = function(paths, apiRoot) {
+//   let proxyTable = {}
+//   paths.forEach(function(item) {
+//     let pathRewriteKey = '^/' + item
+//     let pathRewriteValue = '/' + item
+//     proxyTable['/' + item] = {
+//       target: apiRoot,
+//       changeOrigin: true,
+//       pathRewrite: {
+//         [pathRewriteKey]: pathRewriteValue
+//       }
+//     }
+//   })
+//   return proxyTable
+// }
 
 module.exports = {
   dev: {
@@ -27,7 +27,7 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: getProxyTable(config.proxyPaths, config.proxyApiRoot),
+    proxyTable: {},
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -68,7 +68,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: prodConfig.assetsPublicPath,
+    assetsPublicPath: config.assetsPublicPath,
 
     /**
      * Source Maps
