@@ -3,6 +3,23 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
+const config = require('./config')
+
+const getProxyTable = function(paths, apiRoot) {
+  let proxyTable = {}
+  paths.forEach(function(item) {
+    let pathRewriteKey = '^/' + item
+    let pathRewriteValue = '/' + item
+    proxyTable['/' + item] = {
+      target: apiRoot,
+      changeOrigin: true,
+      pathRewrite: {
+        [pathRewriteKey]: pathRewriteValue
+      }
+    }
+  })
+  return proxyTable
+}
 
 module.exports = {
   dev: {
@@ -10,7 +27,7 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: getProxyTable(config.proxyPaths, config.proxyApiRoot),
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -51,7 +68,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: prodConfig.assetsPublicPath,
 
     /**
      * Source Maps
