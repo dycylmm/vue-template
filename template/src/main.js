@@ -10,8 +10,10 @@ import router from './router'
 {{#vuex}}
 import store from './store'
 {{/vuex}}
+import initGlobal from './global/index'
 
 Vue.config.productionTip = false
+initGlobal(Vue)
 
 /* eslint-disable no-new */
 new Vue({
